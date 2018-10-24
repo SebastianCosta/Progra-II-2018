@@ -6,7 +6,7 @@ import tecemergency.capaLogica.Logica.Patient;
 import tecemergency.capaLogica.estructuras.BinaryHeap;
 
 public class Main {
-	public static void main(String[] args) {
+	/*public static void main(String[] args) {
 		BinaryHeap<Patient> heapVector = new BinaryHeap<>();
                 File ficha1 = new File(EnumColor.YELLOW, "Dolor de Cabeza", 1);
                 File ficha2 = new File(EnumColor.GREEN, "Dolor de Cabeza", 2);               
@@ -28,5 +28,5 @@ public class Main {
 		
 		System.out.println("\n\nPRINTED");
 		System.out.println(heapVector.toString());
-	}
+	}*/
 }
