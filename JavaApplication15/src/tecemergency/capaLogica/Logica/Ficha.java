@@ -9,12 +9,12 @@ package tecemergency.capaLogica.Logica;
  *
  * @author Mata
  */
-public class File {
+public class Ficha {
     private EnumColor state;
     private String symptom;
     private int number;
 
-    public File(EnumColor state, String padecimiento, int numero) {
+    public Ficha(EnumColor state, String padecimiento, int numero) {
         this.state = state;
         this.symptom = padecimiento;
         this.number = numero;

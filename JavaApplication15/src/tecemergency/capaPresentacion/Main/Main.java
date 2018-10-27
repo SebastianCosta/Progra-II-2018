@@ -1,7 +1,7 @@
 package tecemergency.capaPresentacion.Main;
 
 import tecemergency.capaLogica.Logica.EnumColor;
-import tecemergency.capaLogica.Logica.File;
+import tecemergency.capaLogica.Logica.Ficha;
 import tecemergency.capaLogica.Logica.Patient;
 import tecemergency.capaLogica.estructuras.BinaryHeap;
 

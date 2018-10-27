@@ -6,7 +6,7 @@
 package tecemergency.capaPresentacion.Principal;
 
 import javax.swing.JTable;
-import tecemergency.capaLogica.Logica.File;
+import tecemergency.capaLogica.Logica.Ficha;
 import tecemergency.capaLogica.Logica.GestionPacientes;
 import tecemergency.capaLogica.Logica.GestionUrgencias;
 import tecemergency.capaLogica.Logica.Patient;
@@ -410,7 +410,7 @@ public class Principal extends javax.swing.JDialog {
 
     private void jButtonRegistrarsePacienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRegistrarsePacienteActionPerformed
         String nombre, fechaNacimiento,detalle;
-        File ficha;
+        Ficha ficha;
         String enfermedad = null;
         if (jRadioButtonEstomacalPaciente.isSelected()){
             enfermedad = "dolor estomacal";

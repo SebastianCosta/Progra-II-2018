@@ -14,19 +14,19 @@ import java.sql.Time;
 public class Patient implements Comparable<Patient>{
     private String name;
     private String fechaNacimiento;
-    private File file;
+    private Ficha file;
     private String detail;
     private String tipo;
     private Time time;
 
-    public Patient(String nombre, String fechaNacimiento, File ficha, String detalle) {
+    public Patient(String nombre, String fechaNacimiento, Ficha ficha, String detalle) {
         this.name = nombre;
         this.fechaNacimiento = fechaNacimiento;
         this.file = ficha;
         this.detail = detalle;
     }
 
-    public Patient(String nombre, String fechaNacimiento, File ficha, String detalle, Time tiempo) {
+    public Patient(String nombre, String fechaNacimiento, Ficha ficha, String detalle, Time tiempo) {
         this.name = nombre;
         this.fechaNacimiento = fechaNacimiento;
         this.file = ficha;
@@ -57,11 +57,11 @@ public class Patient implements Comparable<Patient>{
         this.fechaNacimiento = fechaNacimiento;
     }
 
-    public File getFicha() {
+    public Ficha getFicha() {
         return file;
     }
 
-    public void setFicha(File ficha) {
+    public void setFicha(Ficha ficha) {
         this.file = ficha;
     }
 

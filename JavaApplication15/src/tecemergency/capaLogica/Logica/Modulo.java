@@ -79,14 +79,13 @@ public class Modulo {
         return true;
     }
 
-    public Modulo(String nombreModulo, int numModulo, boolean estatus, String tipoModulo, Object estrucutra, int cantidadAtendidos) {
+    public Modulo(String nombreModulo, int numModulo, String tipoModulo, Object estrucutra) {
         super();
         this.nombreModulo = nombreModulo;
         this.numModulo = numModulo;
-        this.estatus = estatus;
         this.tipoModulo = tipoModulo;
         this.estrucutra = estrucutra;
-        this.cantidadAtendidos = cantidadAtendidos;
+        
     }
 
     @Override
