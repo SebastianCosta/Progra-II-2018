@@ -5,6 +5,8 @@
  */
 package tecemergency.capaPresentacion.Principal;
 
+import tecemergencyl.capaLogica.utils.ModeladorTablas;
+
 /**
  *
  * @author sebas
@@ -28,6 +30,8 @@ public class VentanaConfig extends javax.swing.JDialog {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        buttonGroupUrgencias = new javax.swing.ButtonGroup();
+        buttonGroupEmergencias = new javax.swing.ButtonGroup();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jtextfieldCantidadVentanillasUrgencias = new javax.swing.JTextField();
@@ -56,16 +60,20 @@ public class VentanaConfig extends javax.swing.JDialog {
 
         jLabel3.setText("Cantidad de Ventanillas para Módulo de pacientes de emergencias:");
 
-        jLabel4.setText("Manejo de Módulo de Urgencias):");
+        jLabel4.setText("Manejo de Módulo de Urgencias:");
 
+        buttonGroupUrgencias.add(jRadioButtonUrgenciasCola);
         jRadioButtonUrgenciasCola.setText("Cola de Prioridad");
 
+        buttonGroupUrgencias.add(jRadioButtonUrgenciasHeap);
         jRadioButtonUrgenciasHeap.setText("Heap");
 
         jLabel5.setText("Manejo de Módulo de Emergencias):");
 
+        buttonGroupEmergencias.add(jRadioButtonEmergenciasCola);
         jRadioButtonEmergenciasCola.setText("Cola de Prioridad");
 
+        buttonGroupEmergencias.add(jRadioButtonEmergenciasHeap);
         jRadioButtonEmergenciasHeap.setText("Heap");
 
         jLabel6.setText("Tiempo mínimo:");
@@ -183,8 +191,14 @@ public class VentanaConfig extends javax.swing.JDialog {
     private void jButtonIniciarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonIniciarActionPerformed
        Principal principal = new Principal(this, rootPaneCheckingEnabled,this);
        
+       Object[] columnasListaEspera = new Object[] {"nombre","tiquete"};        
+       principal.getjTableListaEspera().setModel(ModeladorTablas.generarModeloDeTabla(2, columnasListaEspera));
+       principal.getjTableListaEspera().setAutoCreateRowSorter(false);
+       principal.actualizarTabla();
+       
        principal.setVisible(true);
        principal.setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
+       this.setVisible(false);
     }//GEN-LAST:event_jButtonIniciarActionPerformed
 
     private void jButtonSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSalirActionPerformed
@@ -234,6 +248,8 @@ public class VentanaConfig extends javax.swing.JDialog {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.ButtonGroup buttonGroupEmergencias;
+    private javax.swing.ButtonGroup buttonGroupUrgencias;
     private javax.swing.JButton jButtonIniciar;
     private javax.swing.JButton jButtonSalir;
     private javax.swing.JLabel jLabel1;
