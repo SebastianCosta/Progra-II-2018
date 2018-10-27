@@ -8,6 +8,7 @@ package tecemergency.capaPresentacion.Principal;
 import javax.swing.JTable;
 import tecemergency.capaLogica.Logica.File;
 import tecemergency.capaLogica.Logica.GestionPacientes;
+import tecemergency.capaLogica.Logica.GestionUrgencias;
 import tecemergency.capaLogica.Logica.Patient;
 import tecemergency.capaLogica.estructuras.Lista;
 import tecemergency.capaLogica.estructuras.NodoD;
@@ -20,6 +21,17 @@ import tecemergencyl.capaLogica.utils.ModeladorTablas;
 public class Principal extends javax.swing.JDialog {
     VentanaConfig ventConfig;
     private GestionPacientes listaPacientes;
+    private GestionUrgencias urgencias;
+
+    public GestionUrgencias getUrgencias() {
+        return urgencias;
+    }
+
+    public void setUrgencias(GestionUrgencias urgencias) {
+        this.urgencias = urgencias;
+    }
+    
+    
 
     public VentanaConfig getVentConfig() {
         return ventConfig;

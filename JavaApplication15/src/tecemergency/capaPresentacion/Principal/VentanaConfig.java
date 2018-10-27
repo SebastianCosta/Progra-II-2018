@@ -6,6 +6,7 @@
 package tecemergency.capaPresentacion.Principal;
 
 import tecemergency.capaLogica.Logica.GestionPacientes;
+import tecemergency.capaLogica.Logica.GestionUrgencias;
 import tecemergencyl.capaLogica.utils.ModeladorTablas;
 
 /**
@@ -64,6 +65,11 @@ public class VentanaConfig extends javax.swing.JDialog {
 
         buttonGroupUrgencias.add(jRadioButtonUrgenciasCola);
         jRadioButtonUrgenciasCola.setText("Cola de Prioridad");
+        jRadioButtonUrgenciasCola.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButtonUrgenciasColaActionPerformed(evt);
+            }
+        });
 
         buttonGroupUrgencias.add(jRadioButtonUrgenciasHeap);
         jRadioButtonUrgenciasHeap.setText("Heap");
@@ -188,15 +194,46 @@ public class VentanaConfig extends javax.swing.JDialog {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void inicioUrgencias(){
+        
+    }
+    
+    
     private void jButtonIniciarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonIniciarActionPerformed
+       //instancias
        Principal principal = new Principal(this, rootPaneCheckingEnabled,this);
        GestionPacientes pacientes = new GestionPacientes();
        principal.setListaPacientes(pacientes);
        
+       //crea el heap o cola para Modulo de Urgencias
+       if(jRadioButtonUrgenciasCola.isSelected()){
+           GestionUrgencias urgencias = new GestionUrgencias("Cola");
+           principal.setUrgencias(urgencias);
+       }if (jRadioButtonUrgenciasHeap.isSelected()){
+           GestionUrgencias urgencias2 = new GestionUrgencias("Heap");
+           principal.setUrgencias(urgencias2);
+       }
+       
+       //crea el heap o cola para Modulo de Emergencias
+       if(jRadioButtonEmergenciasCola.isSelected()){
+           GestionUrgencias urgencias = new GestionUrgencias("Cola");
+           principal.setUrgencias(urgencias);
+       }if (jRadioButtonEmergenciasHeap.isSelected()){
+           GestionUrgencias urgencias2 = new GestionUrgencias("Heap");
+           principal.setUrgencias(urgencias2);
+       }
+       
+       
+       
+       
+       
+       //actualiza Tabla Lista de espera
        Object[] columnasListaEspera = new Object[] {"nombre","tipo"};        
        principal.getjTableListaEspera().setModel(ModeladorTablas.generarModeloDeTabla(2, columnasListaEspera));
        principal.getjTableListaEspera().setAutoCreateRowSorter(false);
        principal.actualizarTabla();
+       //fin de tabla lista espera
+       
        
        principal.setVisible(true);
        principal.setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
@@ -206,6 +243,10 @@ public class VentanaConfig extends javax.swing.JDialog {
     private void jButtonSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSalirActionPerformed
         this.setVisible(false);
     }//GEN-LAST:event_jButtonSalirActionPerformed
+
+    private void jRadioButtonUrgenciasColaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonUrgenciasColaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jRadioButtonUrgenciasColaActionPerformed
 
     /**
      * @param args the command line arguments
