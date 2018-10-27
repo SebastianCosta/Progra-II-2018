@@ -5,6 +5,7 @@
  */
 package tecemergency.capaPresentacion.Principal;
 
+import tecemergency.capaLogica.Logica.GestionPacientes;
 import tecemergencyl.capaLogica.utils.ModeladorTablas;
 
 /**
@@ -17,7 +18,6 @@ public class VentanaConfig extends javax.swing.JDialog {
      * Creates new form VentanaConfig
      */
     public VentanaConfig(java.awt.Frame parent, boolean modal) {
-        super(parent, modal);
         initComponents();
     }
 
@@ -190,8 +190,10 @@ public class VentanaConfig extends javax.swing.JDialog {
 
     private void jButtonIniciarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonIniciarActionPerformed
        Principal principal = new Principal(this, rootPaneCheckingEnabled,this);
+       GestionPacientes pacientes = new GestionPacientes();
+       principal.setListaPacientes(pacientes);
        
-       Object[] columnasListaEspera = new Object[] {"nombre","tiquete"};        
+       Object[] columnasListaEspera = new Object[] {"nombre","tipo"};        
        principal.getjTableListaEspera().setModel(ModeladorTablas.generarModeloDeTabla(2, columnasListaEspera));
        principal.getjTableListaEspera().setAutoCreateRowSorter(false);
        principal.actualizarTabla();

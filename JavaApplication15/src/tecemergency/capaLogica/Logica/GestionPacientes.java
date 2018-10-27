@@ -10,7 +10,7 @@ import tecemergency.capaLogica.estructuras.ListaD;
 
 
 public class GestionPacientes {
-    ListaD<Patient> listaEspera;
+    private ListaD<Patient> listaEspera;
 
     public ListaD<Patient> getListaEspera() {
         return listaEspera;
@@ -20,12 +20,10 @@ public class GestionPacientes {
         this.listaEspera = listaEspera;
     }
 
-    public GestionPacientes(ListaD<Patient> listaEspera) {
+    public GestionPacientes() {
         this.listaEspera = new ListaD<Patient>();
     }
-    
-    
-    
+  
 
     @Override
     public String toString() {

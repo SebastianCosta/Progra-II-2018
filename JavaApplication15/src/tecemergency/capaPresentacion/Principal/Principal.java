@@ -6,6 +6,7 @@
 package tecemergency.capaPresentacion.Principal;
 
 import javax.swing.JTable;
+import tecemergency.capaLogica.Logica.File;
 import tecemergency.capaLogica.Logica.GestionPacientes;
 import tecemergency.capaLogica.Logica.Patient;
 import tecemergency.capaLogica.estructuras.Lista;
@@ -18,7 +19,15 @@ import tecemergencyl.capaLogica.utils.ModeladorTablas;
  */
 public class Principal extends javax.swing.JDialog {
     VentanaConfig ventConfig;
-    GestionPacientes listaPacientes;
+    private GestionPacientes listaPacientes;
+
+    public VentanaConfig getVentConfig() {
+        return ventConfig;
+    }
+
+    public void setVentConfig(VentanaConfig ventConfig) {
+        this.ventConfig = ventConfig;
+    }
 
     public GestionPacientes getListaPacientes() {
         return listaPacientes;
@@ -26,9 +35,7 @@ public class Principal extends javax.swing.JDialog {
 
     public void setListaPacientes(GestionPacientes listaPacientes) {
         this.listaPacientes = listaPacientes;
-    }
-    
-    
+    }   
 
     /**
      * Creates new form VentPrincipal
@@ -37,7 +44,6 @@ public class Principal extends javax.swing.JDialog {
         super(parent, modal);
         initComponents();
         this.ventConfig = ventConfig;
-
     }
 
     /**
@@ -391,6 +397,8 @@ public class Principal extends javax.swing.JDialog {
     }//GEN-LAST:event_jTextFieldDetallePadePacienteActionPerformed
 
     private void jButtonRegistrarsePacienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRegistrarsePacienteActionPerformed
+        String nombre, fechaNacimiento,detalle;
+        File ficha;
         String enfermedad = null;
         if (jRadioButtonEstomacalPaciente.isSelected()){
             enfermedad = "dolor estomacal";
@@ -409,6 +417,11 @@ public class Principal extends javax.swing.JDialog {
             enfermedad = "quebradura";
         }
         System.out.println(enfermedad);
+        nombre = jTextFieldNombrePaciente.getText();
+        fechaNacimiento = jTextFieldNacimientoPaciente.getText();
+        detalle = jTextFieldDetallePadePaciente.getText();
+        Patient nuevoPaciente = new Patient(nombre,fechaNacimiento,detalle,enfermedad);
+        this.listaPacientes.agregarListaEspera(nuevoPaciente);
         this.actualizarTabla();
     }//GEN-LAST:event_jButtonRegistrarsePacienteActionPerformed
 
@@ -426,7 +439,7 @@ public class Principal extends javax.swing.JDialog {
             Object[] filaNueva;
             NodoD<Patient> temp = this.listaPacientes.getListaEspera().getCabeza();
             for (int i = 0; i < this.listaPacientes.getListaEspera().getTamano(); i++) {
-                filaNueva = new Object[]{temp.getElemento().getNombre(),temp.getElemento().getFicha()};
+                filaNueva = new Object[]{temp.getElemento().getNombre(),temp.getElemento().getTipo()};
                 ModeladorTablas.nuevaFila(jTableListaEspera, filaNueva);
                 temp = temp.getSiguiente();
             }
