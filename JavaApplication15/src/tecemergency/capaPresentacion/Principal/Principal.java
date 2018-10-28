@@ -9,9 +9,12 @@ import javax.swing.JTable;
 import tecemergency.capaLogica.Logica.Ficha;
 import tecemergency.capaLogica.Logica.GestionPacientes;
 import tecemergency.capaLogica.Logica.GestionUrgencias;
+import tecemergency.capaLogica.Logica.ModuloUrgencias;
 import tecemergency.capaLogica.Logica.Patient;
 import tecemergency.capaLogica.estructuras.Lista;
+import tecemergency.capaLogica.estructuras.Nodo;
 import tecemergency.capaLogica.estructuras.NodoD;
+import tecemergency.capaLogica.estructuras.NodoS;
 import tecemergencyl.capaLogica.utils.ModeladorTablas;
 
 /**
@@ -453,6 +456,21 @@ public class Principal extends javax.swing.JDialog {
             for (int i = 0; i < this.listaPacientes.getListaEspera().getTamano(); i++) {
                 filaNueva = new Object[]{temp.getElemento().getNombre(),temp.getElemento().getTipo()};
                 ModeladorTablas.nuevaFila(jTableListaEspera, filaNueva);
+                temp = temp.getSiguiente();
+            }
+
+        }
+    }
+    public void actualizarTablaUrgencias() {
+        if (this.urgencias.getEstructura2().esVacia()) {
+            ModeladorTablas.vaciarTabla(jTablePacientesUrgencias);
+        } else {
+            ModeladorTablas.vaciarTabla(jTablePacientesUrgencias);
+            Object[] filaNueva;
+            NodoS<ModuloUrgencias> temp = this.urgencias.getEstructura2().getCabeza();
+            for (int i = 0; i < this.urgencias.getEstructura2().getTamano(); i++) {
+                filaNueva = new Object[]{temp.getContiene().getNombreModulo(),temp.getContiene().getNumModulo(),temp.getContiene().isEstatus()};
+                ModeladorTablas.nuevaFila(jTablePacientesUrgencias, filaNueva);
                 temp = temp.getSiguiente();
             }
 

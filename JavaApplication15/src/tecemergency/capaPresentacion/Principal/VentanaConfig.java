@@ -204,24 +204,26 @@ public class VentanaConfig extends javax.swing.JDialog {
        Principal principal = new Principal(this, rootPaneCheckingEnabled,this);
        GestionPacientes pacientes = new GestionPacientes();
        principal.setListaPacientes(pacientes);
+       int cantidadUrg = Integer.parseInt(jtextfieldCantidadVentanillasUrgencias.getText());
+       int cantidadEmer = Integer.parseInt(jtextfieldCantidadVentanillasEmergencias.getText());
        
        //crea el heap o cola para Modulo de Urgencias
        if(jRadioButtonUrgenciasCola.isSelected()){
-           GestionUrgencias urgencias = new GestionUrgencias("Cola");
+           GestionUrgencias urgencias = new GestionUrgencias("Cola",cantidadUrg);
            principal.setUrgencias(urgencias);
        }if (jRadioButtonUrgenciasHeap.isSelected()){
-           GestionUrgencias urgencias2 = new GestionUrgencias("Heap");
+           GestionUrgencias urgencias2 = new GestionUrgencias("Heap",cantidadUrg);
            principal.setUrgencias(urgencias2);
        }
        
        //crea el heap o cola para Modulo de Emergencias
-       if(jRadioButtonEmergenciasCola.isSelected()){
+       /**if(jRadioButtonEmergenciasCola.isSelected()){
            GestionUrgencias urgencias = new GestionUrgencias("Cola");
            principal.setUrgencias(urgencias);
        }if (jRadioButtonEmergenciasHeap.isSelected()){
            GestionUrgencias urgencias2 = new GestionUrgencias("Heap");
            principal.setUrgencias(urgencias2);
-       }
+       }**/
        
        
        
@@ -232,12 +234,17 @@ public class VentanaConfig extends javax.swing.JDialog {
        principal.getjTableListaEspera().setModel(ModeladorTablas.generarModeloDeTabla(2, columnasListaEspera));
        principal.getjTableListaEspera().setAutoCreateRowSorter(false);
        principal.actualizarTabla();
+       
+       Object[] columnasUrgencias = new Object[] {"nombre","numero","estado"};        
+       principal.getjTablePacientesUrgencias().setModel(ModeladorTablas.generarModeloDeTabla(3, columnasUrgencias));
+       principal.getjTablePacientesUrgencias().setAutoCreateRowSorter(false);
+       principal.actualizarTablaUrgencias();
        //fin de tabla lista espera
        
        
        principal.setVisible(true);
        principal.setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
-       this.setVisible(false);
+       this.dispose();
     }//GEN-LAST:event_jButtonIniciarActionPerformed
 
     private void jButtonSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSalirActionPerformed

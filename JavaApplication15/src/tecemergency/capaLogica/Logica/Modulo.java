@@ -18,6 +18,7 @@ public class Modulo {
         this.nombreModulo = nombreModulo;
     }
 
+    
     public int getNumModulo() {
         return numModulo;
     }
@@ -83,6 +84,7 @@ public class Modulo {
         super();
         this.nombreModulo = nombreModulo;
         this.numModulo = numModulo;
+        this.estatus = false;
         this.tipoModulo = tipoModulo;
         this.estrucutra = estrucutra;
         
