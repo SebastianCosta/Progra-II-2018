@@ -5,6 +5,7 @@
  */
 package tecemergency.capaPresentacion.Principal;
 
+import tecemergency.capaLogica.Logica.GestionEmergencias;
 import tecemergency.capaLogica.Logica.GestionPacientes;
 import tecemergency.capaLogica.Logica.GestionUrgencias;
 import tecemergencyl.capaLogica.utils.ModeladorTablas;
@@ -194,19 +195,21 @@ public class VentanaConfig extends javax.swing.JDialog {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void inicioUrgencias(){
+    private void inicioUrgencias(Principal principal){
         
     }
     
     
     private void jButtonIniciarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonIniciarActionPerformed
-       //instancias
+       ////////////////instancias///////////////////////////////////////////////////////////////
        Principal principal = new Principal(this, rootPaneCheckingEnabled,this);
        GestionPacientes pacientes = new GestionPacientes();
        principal.setListaPacientes(pacientes);
        int cantidadUrg = Integer.parseInt(jtextfieldCantidadVentanillasUrgencias.getText());
        int cantidadEmer = Integer.parseInt(jtextfieldCantidadVentanillasEmergencias.getText());
+       ////////////////////////////////////////////////////////////////////////////////////////
        
+       ////////////////////Se crean los modulos///////////////////////////////////////
        //crea el heap o cola para Modulo de Urgencias
        if(jRadioButtonUrgenciasCola.isSelected()){
            GestionUrgencias urgencias = new GestionUrgencias("Cola",cantidadUrg);
@@ -217,31 +220,33 @@ public class VentanaConfig extends javax.swing.JDialog {
        }
        
        //crea el heap o cola para Modulo de Emergencias
-       /**if(jRadioButtonEmergenciasCola.isSelected()){
-           GestionUrgencias urgencias = new GestionUrgencias("Cola");
-           principal.setUrgencias(urgencias);
+       if(jRadioButtonEmergenciasCola.isSelected()){
+           GestionEmergencias emergencias = new GestionEmergencias("Cola",cantidadEmer);
+           principal.setEmergencias(emergencias);
        }if (jRadioButtonEmergenciasHeap.isSelected()){
-           GestionUrgencias urgencias2 = new GestionUrgencias("Heap");
-           principal.setUrgencias(urgencias2);
-       }**/
+           GestionEmergencias emergencias2 = new GestionEmergencias("Heap",cantidadEmer);
+           principal.setEmergencias(emergencias2);
+       }
+       /////////////////////////////////////////////////////////////////////////////////////////////////
        
-       
-       
-       
-       
-       //actualiza Tabla Lista de espera
-       Object[] columnasListaEspera = new Object[] {"nombre","tipo"};        
+       ////////////////////////actualiza Las Tablas////////////////////////////////////////////////////////////////////
+       Object[] columnasListaEspera = new Object[] {"Nombre","Tipo de Padecimiento"};        
        principal.getjTableListaEspera().setModel(ModeladorTablas.generarModeloDeTabla(2, columnasListaEspera));
        principal.getjTableListaEspera().setAutoCreateRowSorter(false);
        principal.actualizarTabla();
        
-       Object[] columnasUrgencias = new Object[] {"nombre","numero","estado"};        
+       Object[] columnasUrgencias = new Object[] {"Nombre","Número","Estado"};        
        principal.getjTablePacientesUrgencias().setModel(ModeladorTablas.generarModeloDeTabla(3, columnasUrgencias));
        principal.getjTablePacientesUrgencias().setAutoCreateRowSorter(false);
        principal.actualizarTablaUrgencias();
-       //fin de tabla lista espera
        
+       Object[] columnasEmergencias= new Object[] {"Nombre","Número","Estado"};        
+       principal.getjTablePacientesEmergencias().setModel(ModeladorTablas.generarModeloDeTabla(3, columnasEmergencias));
+       principal.getjTablePacientesEmergencias().setAutoCreateRowSorter(false);
+       principal.actualizarTablaEmergencias();
+       //////////////////////////fin de tabla lista espera/////////////////////////////////////////////////////////////
        
+       ///////Abre la ventana Principal//////////////////////////////////////////////////////////////////////////////////
        principal.setVisible(true);
        principal.setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
        this.dispose();

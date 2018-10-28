@@ -7,6 +7,7 @@ package tecemergency.capaPresentacion.Principal;
 
 import javax.swing.JTable;
 import tecemergency.capaLogica.Logica.Ficha;
+import tecemergency.capaLogica.Logica.GestionEmergencias;
 import tecemergency.capaLogica.Logica.GestionPacientes;
 import tecemergency.capaLogica.Logica.GestionUrgencias;
 import tecemergency.capaLogica.Logica.ModuloUrgencias;
@@ -25,6 +26,15 @@ public class Principal extends javax.swing.JDialog {
     VentanaConfig ventConfig;
     private GestionPacientes listaPacientes;
     private GestionUrgencias urgencias;
+    private GestionEmergencias emergencias;
+
+    public GestionEmergencias getEmergencias() {
+        return emergencias;
+    }
+
+    public void setEmergencias(GestionEmergencias emergencias) {
+        this.emergencias = emergencias;
+    }
 
     public GestionUrgencias getUrgencias() {
         return urgencias;
@@ -471,6 +481,21 @@ public class Principal extends javax.swing.JDialog {
             for (int i = 0; i < this.urgencias.getEstructura2().getTamano(); i++) {
                 filaNueva = new Object[]{temp.getContiene().getNombreModulo(),temp.getContiene().getNumModulo(),temp.getContiene().isEstatus()};
                 ModeladorTablas.nuevaFila(jTablePacientesUrgencias, filaNueva);
+                temp = temp.getSiguiente();
+            }
+
+        }
+    }
+    public void actualizarTablaEmergencias() {
+        if (this.emergencias.getEstructura2().esVacia()) {
+            ModeladorTablas.vaciarTabla(jTablePacientesEmergencias);
+        } else {
+            ModeladorTablas.vaciarTabla(jTablePacientesEmergencias);
+            Object[] filaNueva;
+            NodoS<ModuloUrgencias> temp = this.emergencias.getEstructura2().getCabeza();
+            for (int i = 0; i < this.emergencias.getEstructura2().getTamano(); i++) {
+                filaNueva = new Object[]{temp.getContiene().getNombreModulo(),temp.getContiene().getNumModulo(),temp.getContiene().isEstatus()};
+                ModeladorTablas.nuevaFila(jTablePacientesEmergencias, filaNueva);
                 temp = temp.getSiguiente();
             }
 

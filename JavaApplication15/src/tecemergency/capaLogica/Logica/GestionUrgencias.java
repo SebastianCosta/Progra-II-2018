@@ -7,7 +7,7 @@ import tecemergency.capaLogica.estructuras.Lista;
 
 
 public class GestionUrgencias {
-    private BinaryHeap  estructura1;
+    private BinaryHeap estructura1;
     private Lista<ModuloUrgencias> estructura2;
 
     public BinaryHeap getEstructura1() {
@@ -28,7 +28,7 @@ public class GestionUrgencias {
 
     public GestionUrgencias(String estructura,int cantidad) {
         if(estructura.equals("Heap")){
-        this.estructura1 = new BinaryHeap();
+        this.estructura1 = new BinaryHeap<>();
         System.out.println("Sirve Heap");
         }else{
             this.estructura2 = new Lista<ModuloUrgencias>();
@@ -38,15 +38,17 @@ public class GestionUrgencias {
     }
     
     public void crearCantidadEstructura2(int cantidad){
-        for (int i = 0;i<=cantidad;i++){
-            ModuloUrgencias nuevoModulo = new ModuloUrgencias("Urgencias",+i,"Urgencias",estructura2);
+        for (int i = 0;i<cantidad;i++){
+            ModuloUrgencias nuevoModulo = new ModuloUrgencias("Urgencias",i+1,"Urgencias",estructura2);
             estructura2.agregar_final(nuevoModulo);   
             System.out.println("sirve");
         }
     }
-    public void crearVentanilla(Patient paciente){
-        
-    }
-    
-    
+    public void crearCantidadHeap(int cantidad){
+         for (int i = 0;i<cantidad;i++){
+            ModuloUrgencias nuevoModulo = new ModuloUrgencias("Urgencias",i+1,"Urgencias",estructura1);
+            estructura1.create((Comparable) nuevoModulo);
+            System.out.println("sirve");
+        }
+    }    
 }
