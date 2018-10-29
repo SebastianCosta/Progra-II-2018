@@ -242,6 +242,12 @@ public class VentanaConfig extends javax.swing.JDialog {
        principal.getjTablePacientesEmergencias().setModel(ModeladorTablas.generarModeloDeTabla(3, columnasEmergencias));
        principal.getjTablePacientesEmergencias().setAutoCreateRowSorter(false);
        principal.actualizarTablaEmergencias();
+       
+       Object[] columnasEgresos = new Object[] {"Nombre","Tipo de Padecimiento"};        
+       principal.getjTableEgresos().setModel(ModeladorTablas.generarModeloDeTabla(2, columnasEgresos));
+       principal.getjTableEgresos().setAutoCreateRowSorter(false);
+      // principal.actualizarTabla();
+       
        //////////////////////////fin de tabla lista espera/////////////////////////////////////////////////////////////
        
        ///////Abre la ventana Principal//////////////////////////////////////////////////////////////////////////////////
