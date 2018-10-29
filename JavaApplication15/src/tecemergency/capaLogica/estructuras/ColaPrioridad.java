@@ -7,7 +7,7 @@ package tecemergency.capaLogica.estructuras;
 
 import tecemergency.capaLogica.Logica.Patient;
 
-public class ColaPrioridad {
+public class ColaPrioridad<X> {
     private int tamMax;
     private Lista[] cola;
 
@@ -32,10 +32,7 @@ public class ColaPrioridad {
         int p= prioridad;
         cola[p].agregar_final(nuevo_usuario);
         }
-    /**
-     * Remueve el elemento primero de la prioridad mayor 
-     * @return un objeto de tipo Task 
-     */
+  
     public Patient eliminar(){
         int prioridad= 2;
         Patient output=null;
