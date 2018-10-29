@@ -10,6 +10,7 @@ import tecemergency.capaLogica.Logica.Ficha;
 import tecemergency.capaLogica.Logica.GestionEmergencias;
 import tecemergency.capaLogica.Logica.GestionPacientes;
 import tecemergency.capaLogica.Logica.GestionUrgencias;
+import tecemergency.capaLogica.Logica.ModuloEmergencias;
 import tecemergency.capaLogica.Logica.ModuloUrgencias;
 import tecemergency.capaLogica.Logica.Patient;
 import tecemergency.capaLogica.estructuras.Lista;
@@ -83,6 +84,7 @@ public class Principal extends javax.swing.JDialog {
         jScrollPane3 = new javax.swing.JScrollPane();
         jTable3 = new javax.swing.JTable();
         buttonGroupTipoPadecimiento = new javax.swing.ButtonGroup();
+        buttonGroupPrioridadColores = new javax.swing.ButtonGroup();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -116,6 +118,10 @@ public class Principal extends javax.swing.JDialog {
         jLabel11 = new javax.swing.JLabel();
         jScrollPane5 = new javax.swing.JScrollPane();
         jTableEgresos = new javax.swing.JTable();
+        jLabel12 = new javax.swing.JLabel();
+        jRadioButtonPrioridadVerde = new javax.swing.JRadioButton();
+        jRadioButtonPrioridadAmarillo = new javax.swing.JRadioButton();
+        jRadioButtonPrioridadRojo = new javax.swing.JRadioButton();
 
         jTable3.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -257,6 +263,22 @@ public class Principal extends javax.swing.JDialog {
         ));
         jScrollPane5.setViewportView(jTableEgresos);
 
+        jLabel12.setText("Prioridad:");
+
+        buttonGroupPrioridadColores.add(jRadioButtonPrioridadVerde);
+        jRadioButtonPrioridadVerde.setText("Verde");
+
+        buttonGroupPrioridadColores.add(jRadioButtonPrioridadAmarillo);
+        jRadioButtonPrioridadAmarillo.setText("Amarillo");
+
+        buttonGroupPrioridadColores.add(jRadioButtonPrioridadRojo);
+        jRadioButtonPrioridadRojo.setText("Rojo");
+        jRadioButtonPrioridadRojo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButtonPrioridadRojoActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -309,14 +331,24 @@ public class Principal extends javax.swing.JDialog {
                                 .addGap(24, 24, 24)
                                 .addComponent(jRadioButtonOtroPaciente))
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(113, 113, 113)
-                                .addComponent(jButtonRegistrarsePaciente))
+                                .addContainerGap()
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 438, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(10, 10, 10)
+                                .addContainerGap()
                                 .addComponent(jLabel7))
                             .addGroup(layout.createSequentialGroup()
                                 .addContainerGap()
-                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 438, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(jLabel12))
+                            .addGroup(layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(jRadioButtonPrioridadVerde)
+                                .addGap(10, 10, 10)
+                                .addComponent(jRadioButtonPrioridadAmarillo)
+                                .addGap(18, 18, 18)
+                                .addComponent(jRadioButtonPrioridadRojo))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(44, 44, 44)
+                                .addComponent(jButtonRegistrarsePaciente)))
                         .addGap(42, 42, 42)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel10)
@@ -367,14 +399,6 @@ public class Principal extends javax.swing.JDialog {
                 .addGap(9, 9, 9)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 421, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(9, 9, 9)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButtonAtenderUrgencias)
-                            .addComponent(jButtonLiberarAtenderUrgencias))
-                        .addGap(79, 79, 79)
-                        .addComponent(jLabel10))
-                    .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -383,34 +407,51 @@ public class Principal extends javax.swing.JDialog {
                             .addComponent(jButtonAtenderEmergencias)
                             .addComponent(jButtonLiberarAtenderEmergencias)))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(2, 2, 2)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 421, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createSequentialGroup()
+                                .addGap(2, 2, 2)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(3, 3, 3)
+                                        .addComponent(jLabel4))
+                                    .addComponent(jTextFieldNacimientoPaciente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(11, 11, 11)
+                                .addComponent(jLabel5)
+                                .addGap(12, 12, 12)
+                                .addComponent(jTextFieldDetallePadePaciente, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(jLabel6)
+                                .addGap(15, 15, 15)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jRadioButtonInfartoPaciente)
+                                    .addComponent(jRadioButtonPartoPaciente)
+                                    .addComponent(jRadioButtonPérdidasangrePaciente))
                                 .addGap(3, 3, 3)
-                                .addComponent(jLabel4))
-                            .addComponent(jTextFieldNacimientoPaciente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(11, 11, 11)
-                        .addComponent(jLabel5)
-                        .addGap(12, 12, 12)
-                        .addComponent(jTextFieldDetallePadePaciente, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabel6)
-                        .addGap(15, 15, 15)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jRadioButtonEstomacalPaciente)
+                                    .addComponent(jRadioButtonQuebraduraPaciente)
+                                    .addComponent(jRadioButtonOtroPaciente))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jLabel12)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jRadioButtonPrioridadVerde)
+                                    .addComponent(jRadioButtonPrioridadAmarillo)
+                                    .addComponent(jRadioButtonPrioridadRojo))
+                                .addGap(27, 27, 27)
+                                .addComponent(jButtonRegistrarsePaciente)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jLabel7)))
+                        .addGap(9, 9, 9)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jRadioButtonInfartoPaciente)
-                            .addComponent(jRadioButtonPartoPaciente)
-                            .addComponent(jRadioButtonPérdidasangrePaciente))
-                        .addGap(3, 3, 3)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jRadioButtonEstomacalPaciente)
-                            .addComponent(jRadioButtonQuebraduraPaciente)
-                            .addComponent(jRadioButtonOtroPaciente))
-                        .addGap(18, 18, 18)
-                        .addComponent(jButtonRegistrarsePaciente)
-                        .addGap(46, 46, 46)
-                        .addComponent(jLabel7)
-                        .addGap(18, 18, 18)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 327, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jButtonAtenderUrgencias)
+                                    .addComponent(jButtonLiberarAtenderUrgencias))
+                                .addGap(79, 79, 79)
+                                .addComponent(jLabel10)))))
                 .addContainerGap(196, Short.MAX_VALUE))
         );
 
@@ -422,6 +463,9 @@ public class Principal extends javax.swing.JDialog {
     }//GEN-LAST:event_jTextFieldDetallePadePacienteActionPerformed
 
     private void jButtonRegistrarsePacienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRegistrarsePacienteActionPerformed
+
+
+/////////////////////Clasifica el paciente////////////////////////////////////
         String nombre, fechaNacimiento,detalle;
         Ficha ficha;
         String enfermedad = null;
@@ -446,9 +490,27 @@ public class Principal extends javax.swing.JDialog {
         fechaNacimiento = jTextFieldNacimientoPaciente.getText();
         detalle = jTextFieldDetallePadePaciente.getText();
         Patient nuevoPaciente = new Patient(nombre,fechaNacimiento,detalle,enfermedad);
-        this.listaPacientes.agregarListaEspera(nuevoPaciente);
+        //this.listaPacientes.agregarListaEspera(nuevoPaciente);
+        ////
+        if (jRadioButtonPrioridadVerde.isSelected()){
+           //agrega a la lista de modulo de urgencias
+        }if (jRadioButtonPrioridadAmarillo.isSelected()){
+           //agrega a la lista de modulo de urgencias
+        }else if (jRadioButtonPrioridadRojo.isSelected()){
+            //agrega a los rojos
+        }
+        //////
+        this.jTextFieldNombrePaciente.setText("");
+        this.jTextFieldNacimientoPaciente.setText("");
+        this.jTextFieldDetallePadePaciente.setText("");
+        this.buttonGroupTipoPadecimiento.clearSelection();
+        
         this.actualizarTabla();
     }//GEN-LAST:event_jButtonRegistrarsePacienteActionPerformed
+
+    private void jRadioButtonPrioridadRojoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonPrioridadRojoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jRadioButtonPrioridadRojoActionPerformed
 
     public JTable getjTableListaEspera() {
         return jTableListaEspera;
@@ -472,13 +534,13 @@ public class Principal extends javax.swing.JDialog {
         }
     }
     public void actualizarTablaUrgencias() {
-        if (this.urgencias.getEstructura2().esVacia()) {
+        if (this.urgencias.getListaVentanillas().esVacia()) {
             ModeladorTablas.vaciarTabla(jTablePacientesUrgencias);
         } else {
             ModeladorTablas.vaciarTabla(jTablePacientesUrgencias);
             Object[] filaNueva;
-            NodoS<ModuloUrgencias> temp = this.urgencias.getEstructura2().getCabeza();
-            for (int i = 0; i < this.urgencias.getEstructura2().getTamano(); i++) {
+            NodoS<ModuloUrgencias> temp = this.urgencias.getListaVentanillas().getCabeza();
+            for (int i = 0; i < this.urgencias.getListaVentanillas().getTamano(); i++) {
                 filaNueva = new Object[]{temp.getContiene().getNombreModulo(),temp.getContiene().getNumModulo(),temp.getContiene().isEstatus()};
                 ModeladorTablas.nuevaFila(jTablePacientesUrgencias, filaNueva);
                 temp = temp.getSiguiente();
@@ -487,13 +549,13 @@ public class Principal extends javax.swing.JDialog {
         }
     }
     public void actualizarTablaEmergencias() {
-        if (this.emergencias.getEstructura2().esVacia()) {
+        if (this.emergencias.getListaVentanillas().esVacia()) {
             ModeladorTablas.vaciarTabla(jTablePacientesEmergencias);
         } else {
             ModeladorTablas.vaciarTabla(jTablePacientesEmergencias);
             Object[] filaNueva;
-            NodoS<ModuloUrgencias> temp = this.emergencias.getEstructura2().getCabeza();
-            for (int i = 0; i < this.emergencias.getEstructura2().getTamano(); i++) {
+            NodoS<ModuloEmergencias> temp = this.emergencias.getListaVentanillas().getCabeza();
+            for (int i = 0; i < this.emergencias.getListaVentanillas().getTamano(); i++) {
                 filaNueva = new Object[]{temp.getContiene().getNombreModulo(),temp.getContiene().getNumModulo(),temp.getContiene().isEstatus()};
                 ModeladorTablas.nuevaFila(jTablePacientesEmergencias, filaNueva);
                 temp = temp.getSiguiente();
@@ -538,6 +600,7 @@ public class Principal extends javax.swing.JDialog {
     
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.ButtonGroup buttonGroupPrioridadColores;
     private javax.swing.ButtonGroup buttonGroupTipoPadecimiento;
     private javax.swing.JButton jButtonAtenderEmergencias;
     private javax.swing.JButton jButtonAtenderUrgencias;
@@ -547,6 +610,7 @@ public class Principal extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -559,6 +623,9 @@ public class Principal extends javax.swing.JDialog {
     private javax.swing.JRadioButton jRadioButtonInfartoPaciente;
     private javax.swing.JRadioButton jRadioButtonOtroPaciente;
     private javax.swing.JRadioButton jRadioButtonPartoPaciente;
+    private javax.swing.JRadioButton jRadioButtonPrioridadAmarillo;
+    private javax.swing.JRadioButton jRadioButtonPrioridadRojo;
+    private javax.swing.JRadioButton jRadioButtonPrioridadVerde;
     private javax.swing.JRadioButton jRadioButtonPérdidasangrePaciente;
     private javax.swing.JRadioButton jRadioButtonQuebraduraPaciente;
     private javax.swing.JScrollPane jScrollPane1;

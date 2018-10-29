@@ -25,6 +25,8 @@
     </Container>
     <Component class="javax.swing.ButtonGroup" name="buttonGroupTipoPadecimiento">
     </Component>
+    <Component class="javax.swing.ButtonGroup" name="buttonGroupPrioridadColores">
+    </Component>
   </NonVisualComponents>
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="2"/>
@@ -105,17 +107,29 @@
                               <EmptySpace min="24" pref="24" max="-2" attributes="0"/>
                               <Component id="jRadioButtonOtroPaciente" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <Group type="102" attributes="0">
-                              <EmptySpace min="113" pref="113" max="-2" attributes="0"/>
-                              <Component id="jButtonRegistrarsePaciente" min="-2" max="-2" attributes="0"/>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="jScrollPane1" min="-2" pref="438" max="-2" attributes="0"/>
                           </Group>
-                          <Group type="102" attributes="0">
-                              <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace max="-2" attributes="0"/>
                               <Component id="jLabel7" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jScrollPane1" min="-2" pref="438" max="-2" attributes="0"/>
+                              <Component id="jLabel12" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="jRadioButtonPrioridadVerde" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
+                              <Component id="jRadioButtonPrioridadAmarillo" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="jRadioButtonPrioridadRojo" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="-2" pref="44" max="-2" attributes="0"/>
+                              <Component id="jButtonRegistrarsePaciente" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
@@ -187,16 +201,6 @@
               <EmptySpace min="9" pref="9" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
-                      <Component id="jScrollPane2" min="-2" pref="421" max="-2" attributes="0"/>
-                      <EmptySpace min="9" pref="9" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jButtonAtenderUrgencias" min="-2" max="-2" attributes="0"/>
-                          <Component id="jButtonLiberarAtenderUrgencias" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace min="79" pref="79" max="-2" attributes="0"/>
-                      <Component id="jLabel10" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="102" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="jScrollPane4" min="-2" max="-2" attributes="0"/>
                           <Component id="jScrollPane5" min="-2" max="-2" attributes="0"/>
@@ -208,38 +212,61 @@
                       </Group>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="2" pref="2" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" attributes="0">
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Component id="jScrollPane2" alignment="0" min="-2" pref="421" max="-2" attributes="0"/>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="2" pref="2" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="102" attributes="0">
+                                      <EmptySpace min="3" pref="3" max="-2" attributes="0"/>
+                                      <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Component id="jTextFieldNacimientoPaciente" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="11" pref="11" max="-2" attributes="0"/>
+                              <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="12" pref="12" max="-2" attributes="0"/>
+                              <Component id="jTextFieldDetallePadePaciente" min="-2" pref="48" max="-2" attributes="0"/>
+                              <EmptySpace min="18" pref="18" max="-2" attributes="0"/>
+                              <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="15" pref="15" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="jRadioButtonInfartoPaciente" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jRadioButtonPartoPaciente" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jRadioButtonPérdidasangrePaciente" min="-2" max="-2" attributes="0"/>
+                              </Group>
                               <EmptySpace min="3" pref="3" max="-2" attributes="0"/>
-                              <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="jRadioButtonEstomacalPaciente" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jRadioButtonQuebraduraPaciente" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jRadioButtonOtroPaciente" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Component id="jLabel12" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="jRadioButtonPrioridadVerde" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jRadioButtonPrioridadAmarillo" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jRadioButtonPrioridadRojo" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
+                              <Component id="jButtonRegistrarsePaciente" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="32767" attributes="0"/>
+                              <Component id="jLabel7" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <Component id="jTextFieldNacimientoPaciente" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace min="11" pref="11" max="-2" attributes="0"/>
-                      <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="12" pref="12" max="-2" attributes="0"/>
-                      <Component id="jTextFieldDetallePadePaciente" min="-2" pref="48" max="-2" attributes="0"/>
-                      <EmptySpace min="18" pref="18" max="-2" attributes="0"/>
-                      <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="15" pref="15" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="9" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jRadioButtonInfartoPaciente" min="-2" max="-2" attributes="0"/>
-                          <Component id="jRadioButtonPartoPaciente" min="-2" max="-2" attributes="0"/>
-                          <Component id="jRadioButtonPérdidasangrePaciente" min="-2" max="-2" attributes="0"/>
+                          <Component id="jScrollPane1" min="-2" pref="327" max="-2" attributes="0"/>
+                          <Group type="102" attributes="0">
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="jButtonAtenderUrgencias" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jButtonLiberarAtenderUrgencias" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="79" pref="79" max="-2" attributes="0"/>
+                              <Component id="jLabel10" min="-2" max="-2" attributes="0"/>
+                          </Group>
                       </Group>
-                      <EmptySpace min="3" pref="3" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jRadioButtonEstomacalPaciente" min="-2" max="-2" attributes="0"/>
-                          <Component id="jRadioButtonQuebraduraPaciente" min="-2" max="-2" attributes="0"/>
-                          <Component id="jRadioButtonOtroPaciente" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace min="18" pref="18" max="-2" attributes="0"/>
-                      <Component id="jButtonRegistrarsePaciente" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="46" pref="46" max="-2" attributes="0"/>
-                      <Component id="jLabel7" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="jScrollPane1" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace pref="196" max="32767" attributes="0"/>
@@ -508,5 +535,37 @@
         </Component>
       </SubComponents>
     </Container>
+    <Component class="javax.swing.JLabel" name="jLabel12">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Prioridad:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JRadioButton" name="jRadioButtonPrioridadVerde">
+      <Properties>
+        <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+          <ComponentRef name="buttonGroupPrioridadColores"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Verde"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JRadioButton" name="jRadioButtonPrioridadAmarillo">
+      <Properties>
+        <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+          <ComponentRef name="buttonGroupPrioridadColores"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Amarillo"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JRadioButton" name="jRadioButtonPrioridadRojo">
+      <Properties>
+        <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+          <ComponentRef name="buttonGroupPrioridadColores"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Rojo"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jRadioButtonPrioridadRojoActionPerformed"/>
+      </Events>
+    </Component>
   </SubComponents>
 </Form>

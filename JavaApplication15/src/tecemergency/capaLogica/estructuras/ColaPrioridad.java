@@ -37,7 +37,7 @@ public class ColaPrioridad {
      * @return un objeto de tipo Task 
      */
     public Patient eliminar(){
-        int prioridad= 4;
+        int prioridad= 2;
         Patient output=null;
         for (int i=0;i<tamMax-1; i++){     
             if(cola[prioridad].getTamano()!=0){
@@ -46,6 +46,14 @@ public class ColaPrioridad {
             prioridad--;
         }
         return output;
+    }
+    
+    public String toString(){
+        for (int i=0; i<tamMax; i++){
+            return (cola[i].toString()) ; 
+        }
+        return ("Cola de Prioridad:");
+        
     }
 
     public ColaPrioridad() {

@@ -195,9 +195,7 @@ public class VentanaConfig extends javax.swing.JDialog {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void inicioUrgencias(Principal principal){
-        
-    }
+    
     
     
     private void jButtonIniciarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonIniciarActionPerformed
