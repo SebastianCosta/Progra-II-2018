@@ -144,7 +144,32 @@ public class Principal extends javax.swing.JDialog {
         jRadioButtonPrioridadVerde = new javax.swing.JRadioButton();
         jRadioButtonPrioridadAmarillo = new javax.swing.JRadioButton();
         jRadioButtonPrioridadRojo = new javax.swing.JRadioButton();
-        jButton1 = new javax.swing.JButton();
+        jLabel13 = new javax.swing.JLabel();
+        jLabel14 = new javax.swing.JLabel();
+        jLabel15 = new javax.swing.JLabel();
+        jLabel16 = new javax.swing.JLabel();
+        jLabel17 = new javax.swing.JLabel();
+        jLabel18 = new javax.swing.JLabel();
+        jLabel19 = new javax.swing.JLabel();
+        jLabel20 = new javax.swing.JLabel();
+        jLabel21 = new javax.swing.JLabel();
+        jLabel22 = new javax.swing.JLabel();
+        jLabel23 = new javax.swing.JLabel();
+        jTextFieldNumeroModificarConsultoriosUrgencias = new javax.swing.JTextField();
+        jTextFieldNumeroModificarConsultoriosEmergencias = new javax.swing.JTextField();
+        jTextFieldNumeroModificarConsultorios = new javax.swing.JTextField();
+        jButtonModificarUrgencias = new javax.swing.JButton();
+        jButtonModificarEmergencias = new javax.swing.JButton();
+        jButtonModificarEgresos = new javax.swing.JButton();
+        jLabel24 = new javax.swing.JLabel();
+        jLabel25 = new javax.swing.JLabel();
+        jLabel26 = new javax.swing.JLabel();
+        jLabel27 = new javax.swing.JLabel();
+        jLabel28 = new javax.swing.JLabel();
+        jLabel29 = new javax.swing.JLabel();
+        jLabel30 = new javax.swing.JLabel();
+        jLabelNumeroUrgencias = new javax.swing.JLabel();
+        jLabelNumerosEmergencias = new javax.swing.JLabel();
 
         jTable3.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -302,12 +327,49 @@ public class Principal extends javax.swing.JDialog {
             }
         });
 
-        jButton1.setText("Prueba");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
+        jLabel13.setText("Estado de consultorios:");
+
+        jLabel14.setText("Cantidad de pacientes en Urgencias");
+
+        jLabel15.setText("Cantidad de pacientes en Emergencias:");
+
+        jLabel16.setText("Proximo a atender en Urgencias:");
+
+        jLabel17.setText("Proximo a atender en Emergencias:");
+
+        jLabel18.setText("Numeros de fichas en Urgencias:");
+
+        jLabel19.setText("Numeros de fichas en Emergencias:");
+
+        jLabel20.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel20.setText("Administración de consultorios:");
+
+        jLabel21.setText("Modificar número de consultorios del Módulo de Urgencias:");
+
+        jLabel22.setText("Modificar número de consultorios del Módulo de Emergencias:");
+
+        jLabel23.setText("Modificar número de consultorios del Módulo de Egresos:");
+
+        jButtonModificarUrgencias.setText("Modificar Urgencias");
+
+        jButtonModificarEmergencias.setText("Modificar Emergencias");
+
+        jButtonModificarEgresos.setText("Modificar Egresos");
+
+        jLabel24.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel24.setText("Estadísticas:");
+
+        jLabel25.setText("Tiempo promedio de espera por condición de paciente Urgencias:");
+
+        jLabel26.setText("Tiempo promedio de espera por condición de paciente Emergencias:");
+
+        jLabel27.setText("Tiempo promedio de espera de cola de egresos:");
+
+        jLabel28.setText("Total de pacientes atendidos Rojos:");
+
+        jLabel29.setText("Total de pacientes atendidos Verdes:");
+
+        jLabel30.setText("Total de pacientes atendidos Amarillos:");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -369,12 +431,10 @@ public class Principal extends javax.swing.JDialog {
                                 .addComponent(jRadioButtonPrioridadAmarillo)
                                 .addGap(18, 18, 18)
                                 .addComponent(jRadioButtonPrioridadRojo))
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addGroup(layout.createSequentialGroup()
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                                     .addGap(44, 44, 44)
-                                    .addComponent(jButtonRegistrarsePaciente)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jButton1))
+                                    .addComponent(jButtonRegistrarsePaciente))
                                 .addGroup(layout.createSequentialGroup()
                                     .addGap(10, 10, 10)
                                     .addComponent(jRadioButtonEstomacalPaciente)
@@ -382,29 +442,82 @@ public class Principal extends javax.swing.JDialog {
                                     .addComponent(jRadioButtonQuebraduraPaciente)
                                     .addGap(24, 24, 24)
                                     .addComponent(jRadioButtonOtroPaciente))))
-                        .addGap(42, 42, 42)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel10)
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(40, 40, 40)
+                                .addGap(42, 42, 42)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 360, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel10)
                                     .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jButtonAtenderUrgencias, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(30, 30, 30)
-                                        .addComponent(jButtonLiberarAtenderUrgencias, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                        .addGap(50, 50, 50)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jButtonAtenderEmergencias, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(30, 30, 30)
-                                .addComponent(jButtonLiberarAtenderEmergencias, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 380, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(72, 72, 72)
+                                        .addGap(40, 40, 40)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 360, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addComponent(jButtonAtenderUrgencias, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addGap(30, 30, 30)
+                                                .addComponent(jButtonLiberarAtenderUrgencias, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                .addGap(50, 50, 50)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel11)
-                                    .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 350, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jButtonAtenderEmergencias, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(30, 30, 30)
+                                        .addComponent(jButtonLiberarAtenderEmergencias, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 380, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(72, 72, 72)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jLabel11)
+                                            .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 350, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(83, 83, 83)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel15)
+                                    .addComponent(jLabel17)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jLabel19)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jLabelNumerosEmergencias, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(145, 145, 145)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jLabel25)
+                                            .addComponent(jLabel24)
+                                            .addComponent(jLabel26)
+                                            .addComponent(jLabel27)
+                                            .addComponent(jLabel28)
+                                            .addComponent(jLabel29)
+                                            .addComponent(jLabel30)))))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(81, 81, 81)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jLabel13)
+                                            .addComponent(jLabel14))
+                                        .addGap(252, 252, 252)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addComponent(jLabel20)
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addComponent(jLabel21)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                                .addComponent(jTextFieldNumeroModificarConsultoriosUrgencias))
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addComponent(jLabel23)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(jTextFieldNumeroModificarConsultorios, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addComponent(jLabel22)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(jTextFieldNumeroModificarConsultoriosEmergencias, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                    .addComponent(jLabel16)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(2, 2, 2)
+                                        .addComponent(jLabel18)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jLabelNumeroUrgencias, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(jButtonModificarUrgencias, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jButtonModificarEmergencias, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jButtonModificarEgresos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))))
                 .addContainerGap(36, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -438,7 +551,24 @@ public class Principal extends javax.swing.JDialog {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jButtonAtenderEmergencias)
-                            .addComponent(jButtonLiberarAtenderEmergencias)))
+                            .addComponent(jButtonLiberarAtenderEmergencias))
+                        .addGap(103, 103, 103)
+                        .addComponent(jLabel20)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel21)
+                            .addComponent(jTextFieldNumeroModificarConsultoriosUrgencias, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jButtonModificarUrgencias))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel22)
+                            .addComponent(jTextFieldNumeroModificarConsultoriosEmergencias, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jButtonModificarEmergencias))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel23)
+                            .addComponent(jTextFieldNumeroModificarConsultorios, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jButtonModificarEgresos)))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 421, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -473,9 +603,7 @@ public class Principal extends javax.swing.JDialog {
                                     .addComponent(jRadioButtonPrioridadAmarillo)
                                     .addComponent(jRadioButtonPrioridadRojo))
                                 .addGap(27, 27, 27)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jButtonRegistrarsePaciente)
-                                    .addComponent(jButton1))
+                                .addComponent(jButtonRegistrarsePaciente)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(jLabel7)))
                         .addGap(9, 9, 9)
@@ -486,8 +614,39 @@ public class Principal extends javax.swing.JDialog {
                                     .addComponent(jButtonAtenderUrgencias)
                                     .addComponent(jButtonLiberarAtenderUrgencias))
                                 .addGap(79, 79, 79)
-                                .addComponent(jLabel10)))))
-                .addContainerGap(196, Short.MAX_VALUE))
+                                .addComponent(jLabel10)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jLabel13)
+                                .addGap(18, 18, 18)
+                                .addComponent(jLabel14)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel16)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jLabel18)
+                                    .addComponent(jLabelNumeroUrgencias, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(26, 26, 26)
+                                .addComponent(jLabel15)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel17)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jLabel19)
+                                    .addComponent(jLabel24)
+                                    .addComponent(jLabelNumerosEmergencias, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel25)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel26)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel27)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel28)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel29)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel30)
+                .addContainerGap(42, Short.MAX_VALUE))
         );
 
         pack();
@@ -551,14 +710,28 @@ public class Principal extends javax.swing.JDialog {
         //this.listaPacientes.agregarListaEspera(nuevoPaciente);
         if (jRadioButtonPrioridadVerde.isSelected()||jRadioButtonPrioridadAmarillo.isSelected()){
            if (this.urgencias.getTipo().equals("Heap")){
+               
                 this.urgencias.getEstructura1().create(nuevoPaciente);
                 System.out.println("Sirve insertar heap en Urgencias"+nuevoPaciente.toString());
                 System.out.println(this.urgencias.getEstructura1().toString());
                 
           } if (this.urgencias.getTipo().equals("Cola")){
-              this.urgencias.getEstructura2().insertar(nuevoPaciente, nuevaficha.getNumero());
+              if (jRadioButtonPrioridadVerde.isSelected()){
+                  this.urgencias.getEstructura2().insertar(nuevoPaciente, 0);
                 System.out.println("Sirve insertar cola prioridad en Urgencias"+nuevoPaciente.toString());
                 System.out.println(this.urgencias.getEstructura2().toString());
+              }if (jRadioButtonPrioridadAmarillo.isSelected()){
+                  this.urgencias.getEstructura2().insertar(nuevoPaciente, 1);
+                System.out.println("Sirve insertar cola prioridad en Urgencias"+nuevoPaciente.toString());
+                System.out.println(this.urgencias.getEstructura2().toString());
+              }
+              if (jRadioButtonPrioridadRojo.isSelected()){
+                  this.urgencias.getEstructura2().insertar(nuevoPaciente, 2);
+                System.out.println("Sirve insertar cola prioridad en Urgencias"+nuevoPaciente.toString());
+                System.out.println(this.urgencias.getEstructura2().toString());
+              }
+              
+              
           }
                 
                 
@@ -568,9 +741,20 @@ public class Principal extends javax.swing.JDialog {
                 System.out.println("Sirve insertar heap en Emergencias"+nuevoPaciente.toString());
                 System.out.println(this.emergencias.getEstructura1().toString());
             } if (this.emergencias.getTipo().equals("Cola")){
-                this.emergencias.getEstructura2().insertar(nuevoPaciente, nuevaficha.getNumero());
-                System.out.println("Sirve insertar cola prioridad en Emergencias"+nuevoPaciente.toString());
-                System.out.println(this.emergencias.getEstructura2().toString());   
+                if (jRadioButtonPrioridadVerde.isSelected()){
+                  this.emergencias.getEstructura2().insertar(nuevoPaciente, 0);
+                System.out.println("Sirve insertar cola prioridad en Urgencias"+nuevoPaciente.toString());
+                System.out.println(this.emergencias.getEstructura2().toString());
+              }if (jRadioButtonPrioridadAmarillo.isSelected()){
+                  this.emergencias.getEstructura2().insertar(nuevoPaciente, 1);
+                System.out.println("Sirve insertar cola prioridad en Urgencias"+nuevoPaciente.toString());
+                System.out.println(this.emergencias.getEstructura2().toString());
+              }
+              if (jRadioButtonPrioridadRojo.isSelected()){
+                  this.emergencias.getEstructura2().insertar(nuevoPaciente, 2);
+                System.out.println("Sirve insertar cola prioridad en Urgencias"+nuevoPaciente.toString());
+                System.out.println(this.emergencias.getEstructura2().toString());
+              }  
         }}
         
      
@@ -579,44 +763,21 @@ public class Principal extends javax.swing.JDialog {
         this.jTextFieldDetallePadePaciente.setText("");
         this.buttonGroupTipoPadecimiento.clearSelection();
         this.buttonGroupPrioridadColores.clearSelection();
+        this.jLabelNumeroUrgencias.setText(Integer.toString(numeroUrgencias));
+        this.jLabelNumerosEmergencias.setText(Integer.toString(numeroEmergencias));
         
-        this.actualizarTabla();
+        
     }//GEN-LAST:event_jButtonRegistrarsePacienteActionPerformed
 
     private void jRadioButtonPrioridadRojoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonPrioridadRojoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jRadioButtonPrioridadRojoActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        if (this.urgencias.getTipo().equals("Cola")){
-                System.out.println(this.urgencias.getEstructura2().toString());
-                
-          }
-
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
-
     public JTable getjTableListaEspera() {
         return jTableListaEspera;
     }
     
     
-    
-    public void actualizarTabla() {
-        if (this.listaPacientes.getListaEspera().esVacia()) {
-            ModeladorTablas.vaciarTabla(jTableListaEspera);
-        } else {
-            ModeladorTablas.vaciarTabla(jTableListaEspera);
-            Object[] filaNueva;
-            NodoD<Patient> temp = this.listaPacientes.getListaEspera().getCabeza();
-            for (int i = 0; i < this.listaPacientes.getListaEspera().getTamano(); i++) {
-                filaNueva = new Object[]{temp.getElemento().getNombre(),temp.getElemento().getTipo()};
-                ModeladorTablas.nuevaFila(jTableListaEspera, filaNueva);
-                temp = temp.getSiguiente();
-            }
-
-        }
-    }
     public void actualizarTablaUrgencias() {
         if (this.urgencias.getListaVentanillas().esVacia()) {
             ModeladorTablas.vaciarTabla(jTablePacientesUrgencias);
@@ -686,24 +847,46 @@ public class Principal extends javax.swing.JDialog {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup buttonGroupPrioridadColores;
     private javax.swing.ButtonGroup buttonGroupTipoPadecimiento;
-    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButtonAtenderEmergencias;
     private javax.swing.JButton jButtonAtenderUrgencias;
     private javax.swing.JButton jButtonLiberarAtenderEmergencias;
     private javax.swing.JButton jButtonLiberarAtenderUrgencias;
+    private javax.swing.JButton jButtonModificarEgresos;
+    private javax.swing.JButton jButtonModificarEmergencias;
+    private javax.swing.JButton jButtonModificarUrgencias;
     private javax.swing.JButton jButtonRegistrarsePaciente;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel20;
+    private javax.swing.JLabel jLabel21;
+    private javax.swing.JLabel jLabel22;
+    private javax.swing.JLabel jLabel23;
+    private javax.swing.JLabel jLabel24;
+    private javax.swing.JLabel jLabel25;
+    private javax.swing.JLabel jLabel26;
+    private javax.swing.JLabel jLabel27;
+    private javax.swing.JLabel jLabel28;
+    private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel30;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JLabel jLabelNumeroUrgencias;
+    private javax.swing.JLabel jLabelNumerosEmergencias;
     private javax.swing.JRadioButton jRadioButtonEstomacalPaciente;
     private javax.swing.JRadioButton jRadioButtonInfartoPaciente;
     private javax.swing.JRadioButton jRadioButtonOtroPaciente;
@@ -726,5 +909,8 @@ public class Principal extends javax.swing.JDialog {
     private javax.swing.JTextField jTextFieldDetallePadePaciente;
     private javax.swing.JTextField jTextFieldNacimientoPaciente;
     private javax.swing.JTextField jTextFieldNombrePaciente;
+    private javax.swing.JTextField jTextFieldNumeroModificarConsultorios;
+    private javax.swing.JTextField jTextFieldNumeroModificarConsultoriosEmergencias;
+    private javax.swing.JTextField jTextFieldNumeroModificarConsultoriosUrgencias;
     // End of variables declaration//GEN-END:variables
 }
