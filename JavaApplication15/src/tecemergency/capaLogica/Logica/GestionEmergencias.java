@@ -11,6 +11,7 @@ public class GestionEmergencias {
     private BinaryHeap<Patient> estructura1;
     private ColaPrioridad<Patient> estructura2;
     private Lista<ModuloEmergencias> listaVentanillas;
+    private String tipo;
 
     public Lista<ModuloEmergencias> getListaVentanillas() {
         return listaVentanillas;
@@ -36,18 +37,28 @@ public class GestionEmergencias {
         this.estructura2 = estructura2;
     }
 
+    public String getTipo() {
+        return tipo;
+    }
+
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
+    }
+
     
 
     public GestionEmergencias(String estructura,int cantidad) {
         if(estructura.equals("Heap")){
-        this.estructura1 = new BinaryHeap<Patient>();
-        this.listaVentanillas = new Lista<ModuloEmergencias>();
-        this.crearCantidadEstructura2(cantidad);
+            this.estructura1 = new BinaryHeap<Patient>();
+            this.listaVentanillas = new Lista<ModuloEmergencias>();
+            this.crearCantidadEstructura2(cantidad);
+            this.tipo = estructura;
         System.out.println("Sirve Heap");
         }else{
             this.estructura2 = new ColaPrioridad<Patient>();
             this.listaVentanillas = new Lista<ModuloEmergencias>();
             this.crearCantidadEstructura2(cantidad);
+            this.tipo = estructura;
             System.out.println("Sirve Cola");
         }
     }

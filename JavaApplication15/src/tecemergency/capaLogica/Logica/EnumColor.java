@@ -37,4 +37,11 @@ public enum EnumColor {
 		this.colorName = colorName;
 	}
 
+    @Override
+    public String toString() {
+        return "EnumColor{" + "priority=" + priority + ", colorCode=" + colorCode + ", colorName=" + colorName + '}';
+    }
+
+        
+        
 }

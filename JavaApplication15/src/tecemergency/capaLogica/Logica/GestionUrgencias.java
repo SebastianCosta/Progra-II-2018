@@ -10,7 +10,18 @@ import tecemergency.capaLogica.estructuras.Lista;
 public class GestionUrgencias {
     private Lista<ModuloUrgencias> listaVentanillas;
     private BinaryHeap<Patient> estructura1;
-   private ColaPrioridad<Patient> estructura2;
+    private ColaPrioridad<Patient> estructura2;
+    private String tipo;
+
+    public String getTipo() {
+        return tipo;
+    }
+
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
+    }
+    
+    
 
     public Lista<ModuloUrgencias> getListaVentanillas() {
         return listaVentanillas;
@@ -43,11 +54,13 @@ public class GestionUrgencias {
             this.estructura1 = new BinaryHeap<Patient>();
             this.listaVentanillas = new Lista<ModuloUrgencias>();
             this.crearCantidadEstructura2(cantidad);
+            this.tipo = estructura;
             System.out.println("Sirve Heap");
         }else{
             this.estructura2 = new ColaPrioridad<Patient>();
             this.listaVentanillas = new Lista<ModuloUrgencias>();
             this.crearCantidadEstructura2(cantidad);
+            this.tipo = estructura;
             System.out.println("Sirve Cola");
         }
     }

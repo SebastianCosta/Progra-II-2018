@@ -46,6 +46,12 @@ public class Ficha {
     public void setNumero(int numero) {
         this.number = numero;
     }
+
+    @Override
+    public String toString() {
+        return "Ficha{" + "state=" + state.getColorName() + ", symptom=" + symptom + ", number=" + number + '}';
+    }
+    
     
     
     

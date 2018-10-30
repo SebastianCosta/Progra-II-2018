@@ -5,7 +5,9 @@
  */
 package tecemergency.capaPresentacion.Principal;
 
+import javax.swing.JOptionPane;
 import javax.swing.JTable;
+import tecemergency.capaLogica.Logica.EnumColor;
 import tecemergency.capaLogica.Logica.Ficha;
 import tecemergency.capaLogica.Logica.GestionEmergencias;
 import tecemergency.capaLogica.Logica.GestionPacientes;
@@ -28,6 +30,26 @@ public class Principal extends javax.swing.JDialog {
     private GestionPacientes listaPacientes;
     private GestionUrgencias urgencias;
     private GestionEmergencias emergencias;
+    private static int numeroUrgencias;
+    private static int numeroEmergencias;
+
+    public static int getNumeroUrgencias() {
+        return numeroUrgencias;
+    }
+
+    public static void setNumeroUrgencias(int numeroUrgencias) {
+        Principal.numeroUrgencias = numeroUrgencias;
+    }
+
+    public static int getNumeroEmergencias() {
+        return numeroEmergencias;
+    }
+
+    public static void setNumeroEmergencias(int numeroEmergencias) {
+        Principal.numeroEmergencias = numeroEmergencias;
+    }
+    
+    
 
     public GestionEmergencias getEmergencias() {
         return emergencias;
@@ -122,6 +144,7 @@ public class Principal extends javax.swing.JDialog {
         jRadioButtonPrioridadVerde = new javax.swing.JRadioButton();
         jRadioButtonPrioridadAmarillo = new javax.swing.JRadioButton();
         jRadioButtonPrioridadRojo = new javax.swing.JRadioButton();
+        jButton1 = new javax.swing.JButton();
 
         jTable3.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -279,6 +302,13 @@ public class Principal extends javax.swing.JDialog {
             }
         });
 
+        jButton1.setText("Prueba");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -324,13 +354,6 @@ public class Principal extends javax.swing.JDialog {
                                 .addGap(56, 56, 56)
                                 .addComponent(jRadioButtonPérdidasangrePaciente))
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(10, 10, 10)
-                                .addComponent(jRadioButtonEstomacalPaciente)
-                                .addGap(2, 2, 2)
-                                .addComponent(jRadioButtonQuebraduraPaciente)
-                                .addGap(24, 24, 24)
-                                .addComponent(jRadioButtonOtroPaciente))
-                            .addGroup(layout.createSequentialGroup()
                                 .addContainerGap()
                                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 438, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
@@ -346,9 +369,19 @@ public class Principal extends javax.swing.JDialog {
                                 .addComponent(jRadioButtonPrioridadAmarillo)
                                 .addGap(18, 18, 18)
                                 .addComponent(jRadioButtonPrioridadRojo))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(44, 44, 44)
-                                .addComponent(jButtonRegistrarsePaciente)))
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addGap(44, 44, 44)
+                                    .addComponent(jButtonRegistrarsePaciente)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jButton1))
+                                .addGroup(layout.createSequentialGroup()
+                                    .addGap(10, 10, 10)
+                                    .addComponent(jRadioButtonEstomacalPaciente)
+                                    .addGap(2, 2, 2)
+                                    .addComponent(jRadioButtonQuebraduraPaciente)
+                                    .addGap(24, 24, 24)
+                                    .addComponent(jRadioButtonOtroPaciente))))
                         .addGap(42, 42, 42)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel10)
@@ -440,7 +473,9 @@ public class Principal extends javax.swing.JDialog {
                                     .addComponent(jRadioButtonPrioridadAmarillo)
                                     .addComponent(jRadioButtonPrioridadRojo))
                                 .addGap(27, 27, 27)
-                                .addComponent(jButtonRegistrarsePaciente)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jButtonRegistrarsePaciente)
+                                    .addComponent(jButton1))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(jLabel7)))
                         .addGap(9, 9, 9)
@@ -470,40 +505,80 @@ public class Principal extends javax.swing.JDialog {
         Ficha ficha;
         String enfermedad = null;
         if (jRadioButtonEstomacalPaciente.isSelected()){
-            enfermedad = "dolor estomacal";
+            enfermedad = "D";
         }
         if (jRadioButtonInfartoPaciente.isSelected()){
-            enfermedad = "infarto";
+            enfermedad = "I";
         }
         if (jRadioButtonOtroPaciente.isSelected()){
-            enfermedad = "otro";
+            enfermedad = "O";
         }
         if (jRadioButtonPartoPaciente.isSelected()){
-            enfermedad = "parto";
+            enfermedad = "P";
         }if (jRadioButtonPérdidasangrePaciente.isSelected()){
-            enfermedad = "perdida";
+            enfermedad = "H";
         }if (jRadioButtonQuebraduraPaciente.isSelected()){
-            enfermedad = "quebradura";
+            enfermedad = "Q";
         }
+        
+        Ficha nuevaficha = new Ficha(EnumColor.YELLOW, enfermedad,0);
+        if (jRadioButtonPrioridadVerde.isSelected()){
+            numeroUrgencias = numeroUrgencias+1;
+            nuevaficha.setState(EnumColor.GREEN);
+            nuevaficha.setPadecimiento(enfermedad);
+            nuevaficha.setNumero(numeroUrgencias);
+        }if (jRadioButtonPrioridadAmarillo.isSelected()){
+            numeroUrgencias = numeroUrgencias+1;
+           nuevaficha.setState(EnumColor.YELLOW);
+           nuevaficha.setPadecimiento(enfermedad);
+           nuevaficha.setNumero(numeroUrgencias);
+        }else if (jRadioButtonPrioridadRojo.isSelected()){
+          numeroEmergencias = numeroEmergencias+1;
+          nuevaficha.setState(EnumColor.RED);
+          nuevaficha.setPadecimiento(enfermedad);
+          nuevaficha.setNumero(numeroEmergencias);
+        }
+        
+        
         System.out.println(enfermedad);
         nombre = jTextFieldNombrePaciente.getText();
         fechaNacimiento = jTextFieldNacimientoPaciente.getText();
         detalle = jTextFieldDetallePadePaciente.getText();
         Patient nuevoPaciente = new Patient(nombre,fechaNacimiento,detalle,enfermedad);
+        nuevoPaciente.setFicha(nuevaficha);
+        System.out.println(nuevaficha.toString());
+        JOptionPane.showMessageDialog(this, "Código de boleto: "+nuevaficha.getState().getColorCode()+"-"+nuevaficha.getPadecimiento()+"-"+nuevaficha.getNumero());
         //this.listaPacientes.agregarListaEspera(nuevoPaciente);
-        ////
-        if (jRadioButtonPrioridadVerde.isSelected()){
-           //agrega a la lista de modulo de urgencias
-        }if (jRadioButtonPrioridadAmarillo.isSelected()){
-           //agrega a la lista de modulo de urgencias
+        if (jRadioButtonPrioridadVerde.isSelected()||jRadioButtonPrioridadAmarillo.isSelected()){
+           if (this.urgencias.getTipo().equals("Heap")){
+                this.urgencias.getEstructura1().create(nuevoPaciente);
+                System.out.println("Sirve insertar heap en Urgencias"+nuevoPaciente.toString());
+                System.out.println(this.urgencias.getEstructura1().toString());
+                
+          } if (this.urgencias.getTipo().equals("Cola")){
+              this.urgencias.getEstructura2().insertar(nuevoPaciente, nuevaficha.getNumero());
+                System.out.println("Sirve insertar cola prioridad en Urgencias"+nuevoPaciente.toString());
+                System.out.println(this.urgencias.getEstructura2().toString());
+          }
+                
+                
         }else if (jRadioButtonPrioridadRojo.isSelected()){
-            //agrega a los rojos
-        }
-        //////
+            if (this.emergencias.getTipo().equals("Heap")){
+                this.emergencias.getEstructura1().create(nuevoPaciente);
+                System.out.println("Sirve insertar heap en Emergencias"+nuevoPaciente.toString());
+                System.out.println(this.emergencias.getEstructura1().toString());
+            } if (this.emergencias.getTipo().equals("Cola")){
+                this.emergencias.getEstructura2().insertar(nuevoPaciente, nuevaficha.getNumero());
+                System.out.println("Sirve insertar cola prioridad en Emergencias"+nuevoPaciente.toString());
+                System.out.println(this.emergencias.getEstructura2().toString());   
+        }}
+        
+     
         this.jTextFieldNombrePaciente.setText("");
         this.jTextFieldNacimientoPaciente.setText("");
         this.jTextFieldDetallePadePaciente.setText("");
         this.buttonGroupTipoPadecimiento.clearSelection();
+        this.buttonGroupPrioridadColores.clearSelection();
         
         this.actualizarTabla();
     }//GEN-LAST:event_jButtonRegistrarsePacienteActionPerformed
@@ -511,6 +586,15 @@ public class Principal extends javax.swing.JDialog {
     private void jRadioButtonPrioridadRojoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonPrioridadRojoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jRadioButtonPrioridadRojoActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        if (this.urgencias.getTipo().equals("Cola")){
+                System.out.println(this.urgencias.getEstructura2().toString());
+                
+          }
+
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     public JTable getjTableListaEspera() {
         return jTableListaEspera;
@@ -602,6 +686,7 @@ public class Principal extends javax.swing.JDialog {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup buttonGroupPrioridadColores;
     private javax.swing.ButtonGroup buttonGroupTipoPadecimiento;
+    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButtonAtenderEmergencias;
     private javax.swing.JButton jButtonAtenderUrgencias;
     private javax.swing.JButton jButtonLiberarAtenderEmergencias;
