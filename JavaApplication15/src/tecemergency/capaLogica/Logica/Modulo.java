@@ -9,7 +9,17 @@ public class Modulo {
     private String tipoModulo;
     private Object estrucutra;
     private int cantidadAtendidos;
+    private Patient patciente;
 
+    public Patient getPatciente() {
+        return patciente;
+    }
+
+    public void setPatciente(Patient patciente) {
+        this.patciente = patciente;
+    }
+
+    
     public String getNombreModulo() {
         return nombreModulo;
     }
@@ -89,6 +99,10 @@ public class Modulo {
         this.estrucutra = estrucutra;
         
     }
+
+    public Modulo() {
+    }
+    
 
     @Override
     public String toString() {

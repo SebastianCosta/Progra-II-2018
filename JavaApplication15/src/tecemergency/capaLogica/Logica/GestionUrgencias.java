@@ -5,6 +5,7 @@ import static javafx.scene.input.KeyCode.X;
 import tecemergency.capaLogica.estructuras.BinaryHeap;
 import tecemergency.capaLogica.estructuras.ColaPrioridad;
 import tecemergency.capaLogica.estructuras.Lista;
+import tecemergency.capaLogica.estructuras.NodoS;
 
 
 public class GestionUrgencias {
@@ -47,6 +48,9 @@ public class GestionUrgencias {
         this.estructura2 = estructura2;
     }
 
+    public GestionUrgencias() {
+    }
+
     
 
     public GestionUrgencias(String estructura,int cantidad) {
@@ -71,5 +75,61 @@ public class GestionUrgencias {
             listaVentanillas.agregar_final(nuevoModulo);   
             System.out.println("sirve");
         }
-    }   
+    }
+    
+    public String attendLiberate(String idRoom){
+       Modulo room = returnRoom(idRoom);
+       GestionEgresos egreso = new GestionEgresos();
+       egreso.entrar(room.getPatciente());
+       room.setPatciente(getEstructura1().extract());
+       System.out.println("Atendiendo a: "+getEstructura1().extract().getNombre());
+       String paciente = getEstructura1().extract().getNombre();
+       return paciente;
+        
+    }
+        public String attendHeap(String room){
+        Patient patient = getEstructura1().extract();
+        String attend = "Atendiendo a "+getEstructura1().extract().getNombre()+" Consultorio: "+room;
+        attend(room,patient );
+        return attend;
+    }
+    public void insertHeap(Patient patient){
+        getEstructura1().create(patient);
+    }
+    public void attend(String idRoom, Patient patient){
+        Modulo room = returnRoom(idRoom);
+        if (room.isEstatus()) {
+            System.out.println("Esta atendiendo a alguien");
+        }else{
+            room.setPatciente(patient);
+            System.out.println("Atendiendo a: "+patient.getNombre()+" Consultorio: "+room.getNumModulo());
+        }
+        
+    }
+    
+public  ModuloEmergencias returnRoom(String id){
+                
+        ModuloEmergencias room = null;
+        NodoS<ModuloEmergencias> temp = this.listaVentanillas.getCabeza();
+         for (int i = 0; i < this.listaVentanillas.getTamano(); i++) {            
+            if (temp.getContiene().getNombreModulo().equals(id) ){
+                room= temp.getContiene();
+                System.out.println(room.getNombreModulo());
+            }temp = temp.getSiguiente();    
+        }return room;
+     }
+    public void showRooms(){
+        getListaVentanillas().setApuntando(getListaVentanillas().getCabeza().getSiguiente());
+        ModuloEmergencias room = null;
+        NodoS<ModuloEmergencias> temp = this.listaVentanillas.getCabeza();
+         for (int i = 0; i < this.listaVentanillas.getTamano(); i++) {            
+            
+            room= (ModuloEmergencias) this.listaVentanillas.getApuntando().getContiene();
+            System.out.println(room.getNumModulo());
+            temp = temp.getSiguiente();    
+        }
+
+    }
+    
+    
 }

@@ -2,6 +2,7 @@ package tecemergency.capaPresentacion.Main;
 
 import tecemergency.capaLogica.Logica.EnumColor;
 import tecemergency.capaLogica.Logica.Ficha;
+import tecemergency.capaLogica.Logica.GestionUrgencias;
 import tecemergency.capaLogica.Logica.Patient;
 import tecemergency.capaLogica.estructuras.BinaryHeap;
 
@@ -29,4 +30,5 @@ public class Main {
 		System.out.println("\n\nPRINTED");
 		System.out.println(heapVector.toString());
 	}*/
+        
 }

@@ -17,7 +17,7 @@ public class Patient implements Comparable<Patient>{
     private Ficha file;
     private String detail;
     private String tipo;
-    private Time time;
+    private int time;
 
     public Patient(String nombre, String fechaNacimiento, Ficha ficha, String detalle) {
         this.name = nombre;
@@ -26,7 +26,7 @@ public class Patient implements Comparable<Patient>{
         this.detail = detalle;
     }
 
-    public Patient(String nombre, String fechaNacimiento, Ficha ficha, String detalle, Time tiempo) {
+    public Patient(String nombre, String fechaNacimiento, Ficha ficha, String detalle, int tiempo) {
         this.name = nombre;
         this.fechaNacimiento = fechaNacimiento;
         this.file = ficha;
@@ -73,11 +73,11 @@ public class Patient implements Comparable<Patient>{
         this.detail = detalle;
     }
 
-    public Time getTiempo() {
+    public int getTiempo() {
         return time;
     }
 
-    public void setTiempo(Time tiempo) {
+    public void setTiempo(int tiempo) {
         this.time = tiempo;
     }
 
